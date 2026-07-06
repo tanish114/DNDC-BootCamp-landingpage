@@ -558,7 +558,68 @@ const [isDrawerOpen, setIsDrawerOpen] = useState(false);
           </div>
         </div>
       </section>
+{/* UNIFIED PREMIUM MODERN FAQ SECTION - No external component required */}
+      <section className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-20 relative z-10 w-full border-t border-gray-100">
+        <div className="text-center max-w-xl mx-auto mb-10 lg:mb-14">
+          <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 block">Have Questions?</span>
+          <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-gray-950 tracking-tight mt-1">
+            Frequently Asked <span className="text-[#ff6600]">Questions</span>
+          </h2>
+          <div className="w-12 h-0.5 bg-[#ff6600] mx-auto mt-2 rounded-full"></div>
+        </div>
 
+        {/* Accordion List Wrapper */}
+        <div className="space-y-3">
+          {[
+            {
+              q: "What are the core prerequisites required to join this program?",
+              a: "There are absolute zero strict technical prerequisites to get started. Our curriculum starts completely from scratch, handling data core fundamentals (Advanced Excel and SQL basics) before moving into programming or generative frameworks."
+            },
+            {
+              q: "How will the 1-on-1 placement assistance pipeline operate?",
+              a: "Once you enter Month 5, you receive direct access to dedicated career assistance mentors. They will work through standard mock technical testing reviews, reconstruct your optimization portfolios, and open direct referral channels into our corporate hiring network partners."
+            },
+            {
+              q: "Is this bootcamp strictly live, or are recordings provided?",
+              a: "All interactive sessions are conducted 100% live to ensure deep engagement and instant debugging support. However, high-definition recordings of every session are uploaded directly to your training dashboard immediately after class for lifetime review access."
+            },
+            {
+              q: "Will I receive an official industry certification upon finishing?",
+              a: "Yes. Upon completing your final capstone model optimization projects and passing your evaluation syncs, you will be issued a verified Data Analytics & AI Engineering Certificate from DNDC Institute to showcase on LinkedIn and resumes."
+            },
+            {
+              q: "How do I secure my slot code after booking a free session?",
+              a: "Once you tap the 'Book Your FREE Demo' or 'Request Callback' triggers, our primary system locks in your temporary access routing. A cohort manager will connect over your chosen time slot window to share your direct live access credentials."
+            }
+          ].map((faq, index) => {
+            // Using a local custom state handle array tracker pattern to manage open states dynamically inside a single file loop
+            const [localOpen, setLocalOpen] = useState(false);
+            
+            return (
+              <div key={index} className="bg-white border border-gray-100 rounded-xl shadow-sm hover:border-orange-200 transition-all duration-200 overflow-hidden">
+                <button
+                  type="button"
+                  onClick={() => setLocalOpen(!localOpen)}
+                  className="w-full text-left px-5 py-4 flex items-center justify-between gap-4 focus:outline-none"
+                >
+                  <span className="text-xs sm:text-sm font-bold text-gray-950 tracking-tight">
+                    {faq.q}
+                  </span>
+                  <span className={`text-base font-bold text-[#ff6600] transform transition-transform duration-200 shrink-0 ${localOpen ? "rotate-45" : ""}`}>
+                    ＋
+                  </span>
+                </button>
+                
+                <div className={`transition-all duration-300 ease-in-out overflow-hidden ${localOpen ? "max-h-40 border-t border-gray-50" : "max-h-0"}`}>
+                  <p className="px-5 py-4 text-gray-600 text-xs sm:text-sm leading-relaxed bg-slate-50/40">
+                    {faq.a}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </section>
       {/* PREMIUM PINNED STICKY FOOTER - Properly aligned and spaced layout matching image_c1625b.png */}
       <footer className="fixed bottom-0 inset-x-0 z-50 bg-white/90 backdrop-blur-md border-t shadow-[0_-4px_20px_rgba(0,0,0,0.15)] backdrop-blur-sm bg-opacity-95">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
